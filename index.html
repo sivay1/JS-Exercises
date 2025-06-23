@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    let num1 = prompt("Enter number1 : ")
+    let num2 = prompt("Enter number2: ")
+    //Normal way to call a variable
+    //console.log("Number 1 is: " + num1 )
+
+    //Using template literal ES6 update
+    
+    // let add = Number(num1) + Number(num2);
+    
+    function Addition(){
+        
+        let add = Number(num1) + Number(num2);
+        console.log(`Addition:  ${add}` )
+    }
+    
+    function Subtraction(){
+        
+        let sub = Number(num1) - Number(num2);
+        console.log(`Subtraction:  ${sub}`)
+    }
+    function Multiplication(){
+        
+        let mul = Number(num1) * Number(num2);
+        console.log(`Multiplication:  ${mul}`)
+    }
+    function Division(){
+
+        let div = Number(num1) / Number(num2);
+        console.log(`Division: ${div}`)
+    }
+    Addition();
+    Subtraction();
+    Multiplication();
+    Division();
+</script>
+</body>
+</html>
