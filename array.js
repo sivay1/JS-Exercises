@@ -16,3 +16,9 @@ let age = 17;
 let vote=(age>=18) ? "Yes" : "No";
 console.log(vote)
 
+myvar = "123.2122";
+console.log(parseFloat(myvar).toFixed());
+
+
+const myName = "Siva";
+console.log(myName.charAt(Math.floor(Math.random() * myName.length)));
