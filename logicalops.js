@@ -10,3 +10,4 @@ if(rating > 5 && collection > 100){
 else{
     console.log("Average movie");
 }
+

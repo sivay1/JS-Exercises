@@ -15,3 +15,19 @@ if(age>=18){
 else{
     console.log("you must be 18+ to drive")
 }
+
+
+//Ternary operator same like if else change the variable subscribe to check the mechanism
+let subscriber =true;
+
+const result = subscriber ? "Welcome" : "Please subscribe";
+console.log(result);
+
+
+let score = 59;
+
+const res = score >=80 ? "Grade: A"
+: score >=70 ? "Grade: B"
+: score >=60 ? "Grade: C"
+:"Grade: D"
+console.log(res);

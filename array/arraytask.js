@@ -19,3 +19,12 @@ function addExpense(){
     console.log(myArray)
 
 }
+
+function calculateTotal(){
+    let total = 0;
+    for(let i=0;i<myArray.length;i++){
+        total += parseFloat(myArray[i].amount);
+    }
+    document.getElementById("total").innerHTML=`Total: ${total}`;
+}
+    

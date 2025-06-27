@@ -8,3 +8,10 @@ while(userinput !== password){
     }
 }
 console.log("Logged in successfully.")
+
+let i =0;
+while(i<=3){
+    console.log(123);
+    i++;
+    
+}
