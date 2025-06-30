@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>🌟 Submit Your Feedback</h2>
+
+<form id="feedbackForm" onsubmit="return false;">
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" placeholder="Your name" required><br><br>
+
+  <label for="rating">Rating (1 to 5):</label><br>
+  <select id="rating" required >
+    <option value="">--Select Rating--</option>
+    <option value="5">5 - Excellent</option>
+    <option value="4">4 - Good</option>
+    <option value="3">3 - Average</option>
+    <option value="2">2 - Poor</option>
+    <option value="1">1 - Bad</option>
+  </select><br><br>
+
+  <label for="comment">Comment:</label><br>
+  <textarea id="comment" placeholder="Write your comment..." rows="4" cols="30" required></textarea><br><br>
+    <button type="submit" onclick="submitFeedback()">Submit</button>
+    <script type="module" src="js/task.js"></script>
+    <label for="filter">Filter by Rating:</label>
+    <select id="filter" onchange="filterFeedback()">
+        <option value="all">All</option>
+        <option value="5">5 Stars</option>
+        <option value="4">4 Stars</option>
+        <option value="3">3 Stars</option>
+        <option value="2">2 Stars</option>
+        <option value="1">1 Star</option>
+    </select>
+
+  <div id="result"></div>
+  <div id="stats"></div>
+  <button onclick="updateStats()">View Stats</button>
+</form>
+</body>
+</html>
