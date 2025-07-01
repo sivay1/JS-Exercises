@@ -12,24 +12,35 @@ import {
 
 
 function submitFeedback() {
-    
-    if(name && name.trim() !== "" && rating && comments) {
-        uniqueUsers.add(name);
-        feedbackArray.push({username:name, rating:rating, comments:comments}); 
-        ratingCount.set(rating, ratingCount.get(rating) ? ratingCount.get(rating) + 1 : 1);
+    // Get the actual values from the DOM elements
+    const userName = name.value;
+    const userRating = parseInt(rating.value);
+    const userComments = comments.value;
+
+    if(userRating && userComments && userName && userName.trim() !== "") {
+        const normalizedUserName = userName.trim().toLowerCase();
+        uniqueUsers.add(normalizedUserName);
+        
+        feedbackArray.push({username: userName, rating: userRating, comments: userComments}); 
+        ratingCount.set(userRating, ratingCount.get(userRating) ? ratingCount.get(userRating) + 1 : 1);
         updateStats();
         filterFeedback();
-    } else {
+    } 
+    else {
         console.log("Please provide valid feedback.");
     }
-    
+
     const arrayValues = feedbackArray.map((item) =>{
-        return `<li>${item.username} : ${item.rating} : ${item.comments}`;
+        return `<li>${item.username} : ${item.rating} : ${item.comments}</li>`;
     });
-resultContainer.innerHTML=`<ul>${arrayValues.join("")}</ul>`;
+    resultContainer.innerHTML=`<ul>${arrayValues.join("")}</ul>`;
 
     
 }
+// Make submitFeedback globally accessible
+window.submitFeedback = submitFeedback;
+window.filterFeedback = filterFeedback;
+window.updateStats = updateStats;
 
 function updateStats(){
     let ratingOutput = "Ratings:<br>";
@@ -54,7 +65,17 @@ function filterFeedback() {
         return `<li>${item.username} : ${item.rating} : ${item.comments}</li>`;
     });
 
-    filterSelect.innerHTML = `<ul>${filteredOutput.join("")}</ul>`;
+    resultContainer.innerHTML = `<ul>${filteredOutput.join("")}</ul>`;
 }
 
-window.submitFeedback = submitFeedback;
+
+// Ensure the DOM is loaded before adding event listeners
+document.addEventListener("DOMContentLoaded", function() {
+    const submitBtn = document.getElementById("submitBtn");
+    if (submitBtn) {
+        submitBtn.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent form submission if inside a form
+            submitFeedback();
+        });
+    }
+});
