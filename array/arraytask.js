@@ -1,19 +1,24 @@
 
 const myArray = [];
+
 function addExpense(){
     
-
     const description = document.getElementById("description").value;
     const expense = document.getElementById("expense").value;
-    const Amount = parseFloat(expense);
+    const amount = parseFloat(expense);
 
-    if(description && expense){
-        myArray.push({title: description, amount: expense});
+    if (description && expense) {
+        myArray.push({ 
+            title: description, 
+            amount: amount,
+            createdAt: new Date()
+          }); 
         document.getElementById("description").value = "";
         document.getElementById("expense").value = "";
+        calculateTotal();
         let output = "";
         for(let i=0;i<myArray.length;i++){
-            output += `<li>${myArray[i].title} : ${myArray[i].amount}<button onclick="deleteExpense()">Delete</button></li> `;
+            output += `<li>${myArray[i].title} : ${myArray[i].amount} : ${myArray[i].createdAt}<button onclick="deleteExpense(${i})">Delete</button></li> `;
         }
         document.getElementById("result").innerHTML=`<ul>${output}</ul> `;
         
@@ -36,9 +41,8 @@ function deleteExpense(index){
     calculateTotal();
     let output = "";
     for(let i=0;i<myArray.length;i++){
-        output += `<li>${myArray[i].title} : ${myArray[i].amount} <button onclick="deleteExpense()">Delete</button> </li>`;
+        output += `<li>${myArray[i].title} : ${myArray[i].amount} <button onclick="deleteExpense(${i})">Delete</button> </li>`;
     }
     document.getElementById("result").innerHTML=`<ul>${output}</ul> `;
    
 }
-
