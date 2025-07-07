@@ -1,15 +1,15 @@
 const callApi = async () => {
     try{
-        const cachedUsers = localStorage.getItem("cachedUsers");
-        const cachedPosts = localStorage.getItem("cachedPosts");
+        // const cachedUsers = localStorage.getItem("cachedUsers");
+        // const cachedPosts = localStorage.getItem("cachedPosts");
         let userData;
         let postData;
-        if (cachedUsers && cachedPosts) {
-            // Step 2: Use cached data if available
-            console.log("Using cached data");
-            userData = JSON.parse(cachedUsers);
-            postData = JSON.parse(cachedPosts);
-        }
+        // if (cachedUsers && cachedPosts) {
+        //     // Step 2: Use cached data if available
+        //     console.log("Using cached data");
+        //     userData = JSON.parse(cachedUsers);
+        //     postData = JSON.parse(cachedPosts);
+        // }
         
         const userResponse = await fetch('https://jsonplaceholder.typicode.com/users'
         //     ,{
@@ -25,8 +25,8 @@ const callApi = async () => {
         userData = await userRes.json();
         postData = await postRes.json();
         
-        localStorage.setItem("cachedUsers", JSON.stringify(userData));
-        localStorage.setItem("cachedPosts", JSON.stringify(postData));
+        // localStorage.setItem("cachedUsers", JSON.stringify(userData));
+        // localStorage.setItem("cachedPosts", JSON.stringify(postData));
         
         // const data = await userResponse.json();
         console.log(userData[0].name); //output is array of objects
