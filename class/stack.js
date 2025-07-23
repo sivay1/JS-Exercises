@@ -1,3 +1,22 @@
+// function reverseWords(s){
+//     splitString = s.split(" ");
+//     const stack = [];
+    
+//     for(let i of splitString){
+//         stack.push(i);
+//     }
+//     let finalS = ""
+//     while(stack.length){
+//         const current = stack.pop()
+//         if(current){
+//             finalS += " " + current;
+//         }
+        
+//     }
+//     return finalS.trim();
+// };
+// console.log(reverseWords("sky a is blue   "))
+
 class Stack{
     constructor(){
         this.stack = [];
